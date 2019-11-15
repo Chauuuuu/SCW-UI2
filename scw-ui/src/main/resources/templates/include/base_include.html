@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="cssfragment">
+    <base th:href="@{/resources/}"/>
+    <link rel="stylesheet" th:href="@{/resources/bootstrap/css/bootstrap.min.css}"
+          href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/theme.css">
+</div>
+
+<div th:fragment="navbarFragment" class="navbar-wrapper">
+    <div class="container">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html" style="font-size:32px;">尚筹网-创意产品众筹平台</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse" style="float:right;">
+                    <ul th:if="${session.responseVo}==null" class="nav navbar-nav navbar-right">
+                        <li><a th:href="@{/login.html}" href="login.html">登录</a></li>
+                        <li><a th:href="@{/reg.html}" href="reg.html">注册</a></li>
+                    </ul>
+                    <ul th:if="${session.responseVo}!=null" class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i><span th:text="${session.responseVo.username}"></span><span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="member.html"><i class="glyphicon glyphicon-scale"></i> 会员中心</a></li>
+                                <li><a href="#"><i class="glyphicon glyphicon-comment"></i> 消息</a></li>
+                                <li class="divider"></li>
+                                <li><a href="index.html"><i class="glyphicon glyphicon-off"></i> 退出系统</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+</div>
+
+<div id="jsfragment">
+    <script th:src="@{/resources/jquery/jquery-2.1.1.min.js}" src="jquery/jquery-2.1.1.min.js"></script>
+    <script th:src="@{/resources/bootstrap/js/bootstrap.min.js}" src="bootstrap/js/bootstrap.min.js"></script>
+    <script th:src="@{/resources/script/docs.min.js}" src="script/docs.min.js"></script>
+    <script th:src="@{/resources/script/back-to-top.js}" src="script/back-to-top.js"></script>
+</div>
+
+<div class="footfragment">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div id="footer">
+                    <div class="footerNav">
+                        <a rel="nofollow" href="http://www.atguigu.com">关于我们</a> | <a rel="nofollow"
+                                                                                      href="http://www.atguigu.com">服务条款</a>
+                        | <a rel="nofollow" href="http://www.atguigu.com">免责声明</a> | <a rel="nofollow"
+                                                                                        href="http://www.atguigu.com">网站地图</a>
+                        | <a rel="nofollow" href="http://www.atguigu.com">联系我们</a>
+                    </div>
+                    <div class="copyRight">
+                        Copyright ?2017-2017atguigu.com 版权所有
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
